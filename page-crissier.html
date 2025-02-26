@@ -6,17 +6,34 @@
     <title>Crissier Properties</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="property">
 
-    <div class="container">
+    <div class="property-container">
         <h1>Crissier Properties</h1>
-        <p>Here are the properties for Crissier.</p>
 
-        <div id="property-data">Loading...</div>
+        <!-- Property 1 -->
+        <div class="property-section">
+            <img class="property-img" src="house1.jpg" alt="House Image">
+            <div class="property-info">
+                <h3>General Information</h3>
+                <p><strong>Address:</strong> 43 Example Lane, Vaud, V18 76H</p>
+                <p><strong>Price:</strong> 1500 CHF / Month</p>
+                <h3>Tenant Information</h3>
+                <p><strong>Name:</strong> Old Chap</p>
+                <p><strong>Age:</strong> 21</p>
+                <p><strong>University:</strong> Lausanne</p>
+                <p><strong>University Acceptance Letter:</strong> Yes</p>
+                <p><strong>Copy of Passport:</strong> Yes</p>
+                <p><strong>Proof of Payment & Deposit:</strong> Yes</p>
+                <h3>Deadlines</h3>
+                <p><strong>Start Date:</strong> 01/01/25</p>
+                <p><strong>End Date:</strong> 01/01/26</p>
+            </div>
+        </div>
 
-        <div class="navigation">
-            <button onclick="goToPage('index.html')">🏠 Home</button>
-            <button onclick="goToPage('page-chavannes.html')">Next ➡️</button>
+        <!-- Pagination Buttons -->
+        <div class="pagination">
+            <button class="nav-button" onclick="goToPage('page-crissier-2.html')">Next ➡️</button>
         </div>
     </div>
 
