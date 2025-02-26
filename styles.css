@@ -44,3 +44,80 @@ button:hover {
     font-size: 16px;
     color: white;
 }
+/* Default Background (for home screen) */
+body.home {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Property Pages Background */
+body.property {
+    background: #F4F8FB; /* Light blue/gray background */
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for Property Pages */
+.property-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Property Sections */
+.property-section {
+    display: flex;
+    align-items: flex-start;
+    background: white;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Property Image */
+.property-img {
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+/* Text Content */
+.property-info {
+    flex: 1;
+}
+
+/* Navigation Buttons */
+.navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-button {
+    background-color: #0E2A47;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.nav-button:hover {
+    background-color: #1D4E89;
+}
+
+/* Pagination Section */
+.pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.page-indicator {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0E2A47;
+}
