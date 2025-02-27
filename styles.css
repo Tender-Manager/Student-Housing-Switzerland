@@ -68,9 +68,9 @@ body.property {
     padding: 50px 0; /* Space above and below white box */
 }
 
-/* White Box (Much Wider) */
+/* White Box (EVEN Wider) */
 .property-container {
-    max-width: 1100px; /* Increased width */
+    max-width: 1200px; /* Even wider */
     width: 90%;
     padding: 30px;
     background: white;
@@ -83,8 +83,8 @@ body.property {
 /* Property Sections */
 .property-section {
     display: flex;
+    flex-direction: column; /* House image on top, info below */
     align-items: center;
-    justify-content: space-between;
     background: white;
     margin-bottom: 20px;
     padding: 15px;
@@ -92,32 +92,39 @@ body.property {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Property Image - Even Bigger */
+/* Property Image - EVEN Bigger */
 .property-img {
-    width: 55%; /* Increased size */
+    width: 60%; /* Increased image size */
     height: auto;
     border-radius: 8px;
 }
 
-/* Property Info - Properly Spaced */
+/* Address & Price - Now Centered Below Image */
+.property-details {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Tenant Info & Deadlines - Right Aligned */
 .property-info {
-    flex: 1;
     text-align: left;
-    margin-left: 50px; /* More space between image and text */
-    padding-right: 30px; /* Ensures text is not at edge */
-    font-size: 15px; /* Smaller text */
+    margin-left: 50px; /* More space between sections */
+    padding-right: 30px;
+    font-size: 15px;
     line-height: 1.7;
 }
 
 /* Page Title (e.g., 'Crissier Properties') */
 .property-container h1 {
-    font-size: 26px; /* Bigger than section titles */
+    font-size: 28px; /* Bigger than section titles */
     font-weight: bold;
     text-decoration: underline;
     margin-bottom: 15px;
 }
 
-/* Section Titles (General Info, Tenant Info, Deadlines) */
+/* Section Titles (Tenant Info, Deadlines) */
 .property-info h3 {
     font-size: 20px; /* Bigger than text but smaller than page title */
     font-weight: bold;
