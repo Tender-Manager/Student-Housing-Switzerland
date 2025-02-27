@@ -39,9 +39,9 @@ body.property {
 
 /* White Box */
 .property-container {
-    max-width: 1100px; /* Wider */
-    width: 90%;
-    padding: 30px;
+    max-width: 1200px; /* WIDER */
+    width: 95%;
+    padding: 40px;
     background: white;
     border-radius: 20px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -51,7 +51,7 @@ body.property {
 
 /* Page Titles (e.g., 'Crissier') */
 .property-container h1 {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: bold;
     text-decoration: underline;
     margin-bottom: 20px;
@@ -61,15 +61,16 @@ body.property {
 .property-section {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between; /* Proper spacing */
     background: white;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* House Image - Larger */
+/* House Image - Bigger */
 .property-img {
-    width: 55%; /* Bigger */
+    width: 50%; /* Much bigger */
     height: auto;
     border-radius: 8px;
 }
@@ -77,43 +78,43 @@ body.property {
 /* Address & Price - Below Image */
 .property-details {
     text-align: center;
-    margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
+    margin-top: 15px;
 }
 
 /* Tenant Info & Deadlines - Right Aligned */
 .property-info {
     flex: 1;
     text-align: left;
-    margin-left: 40px; /* Space between image & text */
-    font-size: 16px;
+    margin-left: 50px; /* More spacing between image & text */
+    font-size: 18px; /* Slightly smaller text */
     line-height: 1.6;
 }
 
 /* Section Titles (Tenant Info, Deadlines) */
 .property-info h3 {
-    font-size: 18px; /* Bigger than text */
+    font-size: 20px; /* Bigger */
     font-weight: bold;
     text-decoration: underline;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 /* Navigation Buttons */
 .navigation {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 /* Navigation Button Styling */
 .nav-button {
     background-color: #0E2A47;
     color: white;
-    padding: 12px 22px;
-    font-size: 15px;
+    padding: 14px 24px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
