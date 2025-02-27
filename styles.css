@@ -138,3 +138,60 @@ body.property {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+/* Property Pages Background */
+body.property {
+    background: url('Lausanne.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* White Box (Property Container) */
+.property-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+/* Navigation Buttons */
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px; /* Space between buttons */
+}
+
+/* Navigation Button Styling */
+.nav-button {
+    background-color: #0E2A47;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #1D4E89;
+}
+
+/* SH Logo */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
