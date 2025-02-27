@@ -12,44 +12,13 @@ body {
     align-items: center;
 }
 
-/* Logo Styling */
+/* SH Logo */
 .logo {
     position: absolute;
     top: 20px;
     left: 20px;
     font-size: 36px;
     font-weight: bold;
-    color: white;
-}
-
-/* Button Styles */
-button {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    margin: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-/* Footer Text */
-.footer {
-    position: absolute;
-    bottom: 20px;
-    font-size: 16px;
-    color: white;
-}
-
-/* Default Background (for home screen) */
-body.home {
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
     color: white;
 }
 
@@ -65,41 +34,47 @@ body.property {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 50px 0; /* Space above and below white box */
+    padding: 50px 0; /* Space above & below */
 }
 
-/* White Box (EVEN Wider) */
+/* White Box */
 .property-container {
-    max-width: 1200px; /* Even wider */
+    max-width: 1100px; /* Wider */
     width: 90%;
     padding: 30px;
     background: white;
-    border-radius: 10px;
+    border-radius: 20px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: relative;
 }
 
+/* Page Titles (e.g., 'Crissier') */
+.property-container h1 {
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
 /* Property Sections */
 .property-section {
     display: flex;
-    flex-direction: column; /* House image on top, info below */
-    align-items: center;
+    align-items: flex-start;
     background: white;
-    margin-bottom: 20px;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Property Image - EVEN Bigger */
+/* House Image - Larger */
 .property-img {
-    width: 60%; /* Increased image size */
+    width: 55%; /* Bigger */
     height: auto;
     border-radius: 8px;
 }
 
-/* Address & Price - Now Centered Below Image */
+/* Address & Price - Below Image */
 .property-details {
     text-align: center;
     margin-top: 10px;
@@ -109,31 +84,23 @@ body.property {
 
 /* Tenant Info & Deadlines - Right Aligned */
 .property-info {
+    flex: 1;
     text-align: left;
-    margin-left: 50px; /* More space between sections */
-    padding-right: 30px;
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-/* Page Title (e.g., 'Crissier Properties') */
-.property-container h1 {
-    font-size: 28px; /* Bigger than section titles */
-    font-weight: bold;
-    text-decoration: underline;
-    margin-bottom: 15px;
+    margin-left: 40px; /* Space between image & text */
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 /* Section Titles (Tenant Info, Deadlines) */
 .property-info h3 {
-    font-size: 20px; /* Bigger than text but smaller than page title */
+    font-size: 18px; /* Bigger than text */
     font-weight: bold;
     text-decoration: underline;
     margin-top: 10px;
     margin-bottom: 5px;
 }
 
-/* Navigation Buttons (Inside the White Box, Centered) */
+/* Navigation Buttons */
 .navigation {
     display: flex;
     justify-content: center;
@@ -155,14 +122,4 @@ body.property {
 
 .nav-button:hover {
     background-color: #1D4E89;
-}
-
-/* SH Logo */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 36px;
-    font-weight: bold;
-    color: white;
 }
