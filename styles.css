@@ -23,7 +23,7 @@ body {
 
 /* White Box (Property Container) */
 .property-container {
-    max-width: 900px; /* Smaller box */
+    max-width: 750px; /* SMALLER White Box */
     width: 90%;
     padding: 20px;
     background: white;
@@ -37,44 +37,44 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 /* Left Column (Image + Address) */
 .left-column {
-    width: 50%;
+    width: 45%;
     text-align: left;
 }
 
 /* Property Image */
 .property-img {
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     border-radius: 8px;
 }
 
 /* Address & Price */
 .property-details {
     text-align: left;
-    margin-top: 10px;
-    font-size: 14px;
+    margin-top: 5px;
+    font-size: 12px;
 }
 
 /* Right Column (Tenant Info & Deadlines) */
 .right-column {
-    width: 45%;
+    width: 50%;
     text-align: left;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* Underline Titles */
 h1 {
-    font-size: 22px;
+    font-size: 18px;
     text-decoration: underline;
 }
 
 h3 {
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: underline;
 }
 
@@ -91,7 +91,7 @@ h3 {
     background-color: #0E2A47;
     color: white;
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
