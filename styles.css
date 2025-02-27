@@ -12,19 +12,17 @@ body {
     align-items: center;
 }
 
-/* Logo Styling */
+/* SH Logo Styling */
 .logo {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 30px;
+    left: 40px;
     font-size: 36px;
     font-weight: bold;
     color: white;
 }
 
-/* --- PROPERTY PAGE STYLING --- */
-
-/* Property Pages Background */
+/* Property Page Background */
 body.property {
     background: url('Lausanne.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -34,101 +32,83 @@ body.property {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px 0; /* Adds space above and below the white box */
 }
 
 /* White Box (Property Container) */
 .property-container {
-    max-width: 1200px;
+    max-width: 1100px; /* Wider */
     width: 90%;
-    padding: 30px;
+    padding: 40px;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: relative;
 }
 
 /* Page Title */
-.property-container h1 {
-    font-size: 26px;
-    text-transform: uppercase;
+h1 {
+    font-size: 28px;
     text-decoration: underline;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* Property Sections */
 .property-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
-/* Property Image - Larger */
+/* House Image */
 .property-img {
-    width: 80%;
-    max-width: 500px;
+    width: 500px; /* Make it bigger */
     height: auto;
     border-radius: 8px;
-    margin-bottom: 10px;
 }
 
-/* Address and Price Section */
+/* Address & Price (Under the Image) */
+.property-details {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.property-details p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Tenant Info & Deadlines */
 .property-info {
-    width: 80%;
+    flex: 1;
     text-align: left;
-    margin-bottom: 20px;
+    padding-left: 50px;
+}
+
+.property-info h3 {
+    font-size: 20px;
+    text-decoration: underline;
+    margin-bottom: 10px;
 }
 
 .property-info p {
-    margin: 5px 0;
-    font-size: 16px;
-}
-
-.property-info strong {
     font-size: 18px;
 }
 
-/* Tenant and Deadline Information */
-.details-container {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    text-align: left;
-}
-
-.tenant-info, .deadlines {
-    width: 45%;
-}
-
-.tenant-info h3, .deadlines h3 {
-    text-decoration: underline;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.tenant-info p, .deadlines p {
-    font-size: 16px;
-    margin: 5px 0;
-}
-
-/* Navigation Buttons (Inside the White Box, Centered) */
+/* Navigation Buttons (Inside White Box) */
 .navigation {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 /* Navigation Button Styling */
 .nav-button {
     background-color: #0E2A47;
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 24px;
+    font-size: 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
