@@ -1,58 +1,3 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Logo Styling */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 36px;
-    font-weight: bold;
-    color: white;
-}
-
-/* Button Styles */
-button {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
-    font-size: 20px;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 10px;
-    margin: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-/* Footer Text */
-.footer {
-    position: absolute;
-    bottom: 20px;
-    font-size: 16px;
-    color: white;
-}
-
-/* Default Background (for home screen) */
-body.home {
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-}
-
 /* --- PROPERTY PAGE STYLING --- */
 
 /* Property Pages Background */
@@ -65,7 +10,7 @@ body.property {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding-top: 50px; /* Adds space above white box */
+    padding-top: 60px; /* Adds space above white box */
 }
 
 /* White Box (Property Container) */
@@ -84,17 +29,17 @@ body.property {
 .property-section {
     display: flex;
     align-items: center; /* Centers content vertically */
-    justify-content: space-between; /* Spreads image and text apart */
+    justify-content: space-between; /* Spaces out the image and text */
     background: white;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Property Image - Larger */
 .property-img {
-    width: 300px; /* Slightly larger image */
+    width: 320px; /* Slightly larger */
     height: auto;
     border-radius: 8px;
 }
@@ -103,8 +48,8 @@ body.property {
 .property-info {
     flex: 1;
     text-align: left;
-    padding-left: 40px; /* Space between the image and text */
-    padding-right: 40px; /* Ensures spacing between text and right side of white box */
+    margin-left: 50px; /* More space between image and text */
+    padding-right: 60px; /* Push text away from the right side */
     line-height: 1.6;
 }
 
@@ -126,7 +71,7 @@ body.property {
 .nav-button {
     background-color: #0E2A47;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -138,15 +83,12 @@ body.property {
     background-color: #1D4E89;
 }
 
-/* Pagination Section */
-.pagination {
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* Page Indicator */
-.page-indicator {
-    font-size: 18px;
+/* SH Logo */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 36px;
     font-weight: bold;
-    color: #0E2A47;
+    color: white;
 }
