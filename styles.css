@@ -121,3 +121,20 @@ body.property {
     font-weight: bold;
     color: #0E2A47;
 }
+/* Property Pages Background */
+body.property {
+    background: url('Lausanne.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* White Box for Property Details */
+.property-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: white; /* Keeps the white box */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
