@@ -21,9 +21,9 @@ body {
     color: white;
 }
 
-/* White Box (Property Container) */
+/* White Box (Slightly Bigger Now) */
 .property-container {
-    max-width: 750px; /* SMALLER White Box */
+    max-width: 850px; /* Slightly Bigger */
     width: 90%;
     padding: 20px;
     background: white;
@@ -49,7 +49,7 @@ body {
 /* Property Image */
 .property-img {
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
     border-radius: 8px;
 }
 
@@ -69,7 +69,7 @@ body {
 
 /* Underline Titles */
 h1 {
-    font-size: 18px;
+    font-size: 20px;
     text-decoration: underline;
 }
 
@@ -100,4 +100,22 @@ h3 {
 
 .nav-button:hover {
     background-color: #1D4E89;
+}
+
+/* Home Page Button Fix */
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Fix "Switzerland" text position */
+.switzerland-text {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
 }
