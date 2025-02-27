@@ -19,6 +19,7 @@ body {
     left: 20px;
     font-size: 36px;
     font-weight: bold;
+    color: white;
 }
 
 /* Button Styles */
@@ -44,6 +45,7 @@ button:hover {
     font-size: 16px;
     color: white;
 }
+
 /* Default Background (for home screen) */
 body.home {
     background: url('background.jpg') no-repeat center center fixed;
@@ -51,18 +53,31 @@ body.home {
     color: white;
 }
 
+/* --- PROPERTY PAGE STYLING --- */
+
 /* Property Pages Background */
 body.property {
-    background: #F4F8FB; /* Light blue/gray background */
+    background: url('Lausanne.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: black;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 50px; /* Adds space above white box */
 }
 
-/* Container for Property Pages */
+/* White Box (Property Container) */
 .property-container {
     max-width: 1000px;
-    margin: auto;
+    width: 90%;
     padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
 }
 
 /* Property Sections */
@@ -76,147 +91,12 @@ body.property {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Property Image */
+/* Property Image - Larger */
 .property-img {
-    width: 250px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
-    margin-right: 20px;
     border-radius: 8px;
-}
-
-/* Text Content */
-.property-info {
-    flex: 1;
-}
-
-/* Navigation Buttons */
-.navigation {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.nav-button {
-    background-color: #0E2A47;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.nav-button:hover {
-    background-color: #1D4E89;
-}
-
-/* Pagination Section */
-.pagination {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.page-indicator {
-    font-size: 18px;
-    font-weight: bold;
-    color: #0E2A47;
-}
-/* Property Pages Background */
-body.property {
-    background: url('Lausanne.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: black;
-    font-family: Arial, sans-serif;
-}
-
-/* White Box for Property Details */
-.property-container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-    background: white; /* Keeps the white box */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-/* Property Pages Background */
-body.property {
-    background: url('Lausanne.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: black;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* White Box (Property Container) */
-.property-container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    position: relative;
-}
-
-/* Navigation Buttons */
-.navigation {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px; /* Space between buttons */
-}
-
-/* Navigation Button Styling */
-.nav-button {
-    background-color: #0E2A47;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.nav-button:hover {
-    background-color: #1D4E89;
-}
-
-/* SH Logo */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 36px;
-    font-weight: bold;
-    color: white;
-}
-/* Property Pages Background */
-body.property {
-    background: url('Lausanne.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: black;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* White Box (Centered) */
-.property-container {
-    max-width: 1000px;
-    width: 90%;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    position: relative;
 }
 
 /* Navigation Buttons (Inside the White Box, Centered) */
@@ -243,12 +123,15 @@ body.property {
     background-color: #1D4E89;
 }
 
-/* SH Logo */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 36px;
+/* Pagination Section */
+.pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Page Indicator */
+.page-indicator {
+    font-size: 18px;
     font-weight: bold;
-    color: white;
+    color: #0E2A47;
 }
