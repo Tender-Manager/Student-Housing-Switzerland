@@ -1,3 +1,58 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo Styling */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Button Styles */
+button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Footer Text */
+.footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 16px;
+    color: white;
+}
+
+/* Default Background (for home screen) */
+body.home {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
 /* --- PROPERTY PAGE STYLING --- */
 
 /* Property Pages Background */
@@ -10,12 +65,12 @@ body.property {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding-top: 60px; /* Adds space above white box */
+    padding-top: 50px; /* Adds space above white box */
 }
 
 /* White Box (Property Container) */
 .property-container {
-    max-width: 1000px;
+    max-width: 850px; /* Reduced width to make it smaller */
     width: 90%;
     padding: 30px;
     background: white;
@@ -28,8 +83,8 @@ body.property {
 /* Property Sections */
 .property-section {
     display: flex;
-    align-items: center; /* Centers content vertically */
-    justify-content: space-between; /* Spaces out the image and text */
+    align-items: center;
+    justify-content: space-between;
     background: white;
     margin-bottom: 20px;
     padding: 30px;
@@ -39,17 +94,17 @@ body.property {
 
 /* Property Image - Larger */
 .property-img {
-    width: 320px; /* Slightly larger */
+    width: 350px; /* Increased image size */
     height: auto;
     border-radius: 8px;
 }
 
-/* Property Info - Adjusted Text Spacing */
+/* Property Info - Text Aligned to Right */
 .property-info {
     flex: 1;
     text-align: left;
-    margin-left: 50px; /* More space between image and text */
-    padding-right: 60px; /* Push text away from the right side */
+    margin-left: 50px; /* Space between image and text */
+    padding-right: 30px; /* Keeps text away from right edge */
     line-height: 1.6;
 }
 
