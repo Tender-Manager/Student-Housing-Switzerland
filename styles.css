@@ -96,15 +96,15 @@ body.property {
 .property-img {
     width: 300px; /* Slightly larger image */
     height: auto;
-    margin-right: 40px; /* Space between image and text */
     border-radius: 8px;
 }
 
-/* Property Info - Centralized Text */
+/* Property Info - Adjusted Text Spacing */
 .property-info {
     flex: 1;
     text-align: left;
-    padding-left: 40px; /* Adds spacing from the image */
+    padding-left: 40px; /* Space between the image and text */
+    padding-right: 40px; /* Ensures spacing between text and right side of white box */
     line-height: 1.6;
 }
 
