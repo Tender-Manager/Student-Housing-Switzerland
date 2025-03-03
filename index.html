@@ -27,3 +27,12 @@
     </script>
 </body>
 </html>
+if ("Notification" in window && "serviceWorker" in navigator) {
+    Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+            console.log("User allowed notifications");
+        } else {
+            console.log("User denied notifications");
+        }
+    });
+}
