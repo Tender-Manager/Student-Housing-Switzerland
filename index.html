@@ -26,11 +26,36 @@
             window.location.href = page;
         }
 
-        // Request permission for notifications
+        // Register Firebase Messaging Service Worker
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("firebase-messaging-sw.js")
+                .then(registration => {
+                    console.log("Service Worker registered with scope:", registration.scope);
+                })
+                .catch(err => {
+                    console.error("Service Worker registration failed:", err);
+                });
+        }
+
+        // Request permission for push notifications & Get FCM Token
         if ("Notification" in window && "serviceWorker" in navigator) {
             Notification.requestPermission().then(permission => {
                 if (permission === "granted") {
                     console.log("User allowed notifications");
+
+                    // Firebase Messaging
+                    import("https://www.gstatic.com/firebasejs/11.4.0/firebase-messaging.js").then(({ getMessaging, getToken }) => {
+                        const messaging = getMessaging();
+
+                        getToken(messaging, { vapidKey: "BN9qYQeo8YY3mwtLM2TF162eGpZpX3c708467z9EW2Vjch6rFsgK2aeXUgrpsluj1rHfDWwcBy1gwKFj06z3m2o" })
+                            .then(token => {
+                                console.log("FCM Token:", token);
+                            })
+                            .catch(error => {
+                                console.error("Error getting FCM token:", error);
+                            });
+                    });
+
                 } else {
                     console.log("User denied notifications");
                 }
