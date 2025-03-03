@@ -1,94 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Housing Switzerland</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"> <!-- Added Favicon -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your App Title</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Firebase SDKs: Firebase App and Firebase Cloud Messaging -->
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-messaging-compat.js"></script>
 </head>
-<body class="home">
-    <div class="logo">SH</div>
+<body>
+  <!-- Your content goes here -->
+  <h1>Welcome to My Firebase App</h1>
 
-    <!-- Home Page Buttons -->
-    <div class="home-buttons">
-        <button class="home-button" onclick="goToPage('chemin-de-praz-1.html')">Chemin de Praz</button>
-        <button class="home-button" onclick="goToPage('lentilleres-1.html')">Chemin des Lentillères</button>
-        <button class="home-button" onclick="goToPage('maladiere-1.html')">Route de la Maladière</button>
-        <button class="home-button" onclick="goToPage('chavannes-1.html')">Les Jardins de Chavannes</button>
-    </div>
+  <!-- Firebase Initialization and FCM setup -->
+  <script>
+    // TODO: Replace the following with your app's Firebase project configuration
+    // You can find your config object in your Firebase console.
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID",
+      // measurementId: "G-XXXXXXXXXX" // (Optional) Uncomment if using Analytics
+    };
 
-    <!-- "Switzerland" Text -->
-    <div class="switzerland-text">Switzerland</div>
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-    <!-- JavaScript -->
-    <script>
-        function goToPage(page) {
-            window.location.href = page;
-        }
+    // Initialize Firebase Cloud Messaging
+    const messaging = firebase.messaging();
 
-        // Register Firebase Messaging Service Worker
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("firebase-messaging-sw.js")
-                .then(registration => {
-                    console.log("✅ Service Worker registered with scope:", registration.scope);
-                })
-                .catch(err => {
-                    console.error("❌ Service Worker registration failed:", err);
-                });
-        }
+    // Register service worker for FCM (firebase-messaging-sw.js should exist at the root)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered ✅', registration);
 
-        // Request permission for push notifications & Get FCM Token
-        if ("Notification" in window && "serviceWorker" in navigator) {
-            Notification.requestPermission().then(permission => {
-                if (permission === "granted") {
-                    console.log("✅ User allowed notifications");
+          // Request permission for notifications
+          Notification.requestPermission().then((permission) => {
+            if (permission === 'granted') {
+              console.log('Notification permission granted ✅');
 
-                    // Firebase Messaging
-                    import("https://www.gstatic.com/firebasejs/11.4.0/firebase-messaging.js").then(({ getMessaging, getToken }) => {
-                        const messaging = getMessaging();
-
-                        getToken(messaging, { vapidKey: "BN9qYQeo8YY3mwtLM2TF162eGpZpX3c708467z9EW2Vjch6rFsgK2aeXUgrpsluj1rHfDWwcBy1gwKFj06z3m2o" })
-                            .then(token => {
-                                if (token) {
-                                    console.log("✅ FCM Token:", token);
-                                } else {
-                                    console.warn("⚠️ No FCM token received.");
-                                }
-                            })
-                            .catch(error => {
-                                console.error("❌ Error getting FCM token:", error);
-                            });
-                    });
-
+              // Get FCM token
+              messaging.getToken({
+                // TODO: If required, add your public VAPID key here (available in Firebase Console > Project Settings > Cloud Messaging)
+                vapidKey: "YOUR_PUBLIC_VAPID_KEY_HERE",
+                serviceWorkerRegistration: registration
+              }).then((currentToken) => {
+                if (currentToken) {
+                  console.log('FCM token retrieved ✅:', currentToken);
+                  // TODO: Send the token to your server and store it if needed
                 } else {
-                    console.log("❌ User denied notifications");
+                  console.warn('No FCM token retrieved ⚠️ - An empty token was returned.'); 
                 }
-            });
-        }
-    </script>
+              }).catch((err) => {
+                console.error('FCM token retrieval failed ❌', err);
+              });
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        // Import Firebase SDK
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAK716HaIO4bwBC-3ZNqNQ20Oa0pfCv5Hs",
-            authDomain: "student-housing-switzerland.firebaseapp.com",
-            projectId: "student-housing-switzerland",
-            storageBucket: "student-housing-switzerland.firebasestorage.app",
-            messagingSenderId: "926144922705",
-            appId: "1:926144922705:web:c1e03148bf1b334e9ea470",
-            measurementId: "G-WXCXZVNPHM"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
-
+            } else {
+              console.warn('Notification permission not granted ⚠️');
+            }
+          }).catch((err) => {
+            console.error('Error while requesting notification permission ❌', err);
+          });
+        })
+        .catch((err) => {
+          console.error('Service Worker registration failed ❌', err);
+        });
+    } else {
+      console.error('Service workers are not supported in this browser ❌');
+    }
+  </script>
 </body>
 </html>
