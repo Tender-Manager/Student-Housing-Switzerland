@@ -1,34 +1,74 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2820
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+// Install Event - Cache essential files
+self.addEventListener("install", event => {
+    event.waitUntil(
+        caches.open("pwa-cache").then(cache => {
+            return cache.addAll([
+                "index.html",
+                "page-crissier.html",
+                "page-chavannes.html",
+                "chemin-de-praz-1.html",
+                "chemin-de-praz-2.html",
+                "chemin-de-praz-3.html",
+                "chemin-de-praz-4.html",
+                "chemin-de-praz-5.html",
+                "chemin-de-praz-6.html",
+                "chemin-de-praz-7.html",
+                "chemin-de-praz-8.html",
+                "styles.css",
+                "background.jpg",
+                "Lausanne.jpg",
+                "icons/icon-192x192.png",
+                "icons/badge.png"
+            ]);
+        })
+    );
+    self.skipWaiting(); // Activate worker immediately
+});
 
-\f0\fs24 \cf0 self.addEventListener("install", event => \{\
-    event.waitUntil(\
-        caches.open("pwa-cache").then(cache => \{\
-            return cache.addAll(["index.html", "page-crissier.html", "page-chavannes.html", "styles.css"]);\
-        \})\
-    );\
-\});\
-\
-self.addEventListener("fetch", event => \{\
-    event.respondWith(\
-        caches.match(event.request).then(response => \{\
-            return response || fetch(event.request);\
-        \})\
-    );\
-\});}
-self.addEventListener("push", function (event) {
+// Activate Event - Clean up old caches
+self.addEventListener("activate", event => {
+    event.waitUntil(
+        caches.keys().then(keys => {
+            return Promise.all(
+                keys.filter(key => key !== "pwa-cache")
+                    .map(key => caches.delete(key))
+            );
+        })
+    );
+    self.clients.claim(); // Take control of open pages
+});
+
+// Fetch Event - Serve from cache if available
+self.addEventListener("fetch", event => {
+    event.respondWith(
+        caches.match(event.request).then(response => {
+            return response || fetch(event.request);
+        }).catch(() => caches.match("offline.html")) // Show fallback page if offline
+    );
+});
+
+// Push Notification Event - Display Notifications
+self.addEventListener("push", event => {
     const options = {
         body: event.data ? event.data.text() : "New notification!",
         icon: "/icons/icon-192x192.png", // Replace with your app icon
         badge: "/icons/badge.png", // Optional: A small icon
         vibrate: [200, 100, 200], // Vibration pattern
+        actions: [
+            { action: "open", title: "Open App" },
+            { action: "close", title: "Dismiss" }
+        ]
     };
 
     event.waitUntil(
         self.registration.showNotification("New Update!", options)
     );
+});
+
+// Notification Click Event - Open App or Close Notification
+self.addEventListener("notificationclick", event => {
+    event.notification.close();
+    if (event.action === "open") {
+        event.waitUntil(clients.openWindow("index.html"));
+    }
 });
