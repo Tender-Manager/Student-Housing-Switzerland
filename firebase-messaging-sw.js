@@ -2,7 +2,7 @@
 importScripts("https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js");
 importScripts("https://www.gstatic.com/firebasejs/11.4.0/firebase-messaging-compat.js");
 
-// Firebase configuration (Use the same config as in `index.html`)
+// Firebase configuration (Same as in index.html)
 const firebaseConfig = {
     apiKey: "AIzaSyAK716HaIO4bwBC-3ZNqNQ20Oa0pfCv5Hs",
     authDomain: "student-housing-switzerland.firebaseapp.com",
@@ -17,10 +17,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-// Handle background messages
+// Handle Background Notifications
 messaging.onBackgroundMessage(payload => {
     console.log("Received background message: ", payload);
-
+    
     const notificationTitle = payload.notification.title;
     const notificationOptions = {
         body: payload.notification.body,
