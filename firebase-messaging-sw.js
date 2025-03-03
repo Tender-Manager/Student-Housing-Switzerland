@@ -13,15 +13,28 @@ const firebaseConfig = {
     measurementId: "G-WXCXZVNPHM"
 };
 
-// Initialize Firebase
+// Initialize Firebase App (Ensure it's inside the service worker)
 firebase.initializeApp(firebaseConfig);
+
+// Get Messaging Instance
 const messaging = firebase.messaging();
 
 // Handle Background Messages
 messaging.onBackgroundMessage((payload) => {
     console.log("📩 Received background message: ", payload);
-    self.registration.showNotification(payload.notification.title, {
+
+    const notificationTitle = payload.notification.title;
+    const notificationOptions = {
         body: payload.notification.body,
-        icon: "/icons/icon-192x192.png"
-    });
+        icon: "/icons/icon-192x192.png",
+        click_action: "https://tender-manager.github.io" // URL to open when clicked
+    };
+
+    self.registration.showNotification(notificationTitle, notificationOptions);
+});
+
+// Handle Notification Clicks
+self.addEventListener("notificationclick", function(event) {
+    event.notification.close();
+    event.waitUntil(clients.openWindow("https://tender-manager.github.io"));
 });
