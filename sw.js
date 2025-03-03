@@ -20,3 +20,15 @@ self.addEventListener("fetch", event => \{\
         \})\
     );\
 \});}
+self.addEventListener("push", function (event) {
+    const options = {
+        body: event.data ? event.data.text() : "New notification!",
+        icon: "/icons/icon-192x192.png", // Replace with your app icon
+        badge: "/icons/badge.png", // Optional: A small icon
+        vibrate: [200, 100, 200], // Vibration pattern
+    };
+
+    event.waitUntil(
+        self.registration.showNotification("New Update!", options)
+    );
+});
