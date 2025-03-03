@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Housing Switzerland</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body class="home">
     <div class="logo">SH</div>
@@ -69,38 +70,43 @@
 
     <!-- Firebase SDK -->
     <script type="module">
-<script type="module">
-    // Import Firebase SDK
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+        // Import Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
-    // Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyAK716HaIO4bwBC-3ZNqNQ20Oa0pfCv5Hs",
-        authDomain: "student-housing-switzerland.firebaseapp.com",
-        projectId: "student-housing-switzerland",
-        storageBucket: "student-housing-switzerland.firebasestorage.app",
-        messagingSenderId: "926144922705",
-        appId: "1:926144922705:web:c1e03148bf1b334e9ea470",
-        measurementId: "G-WXCXZVNPHM"
-    };
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAK716HaIO4bwBC-3ZNqNQ20Oa0pfCv5Hs",
+            authDomain: "student-housing-switzerland.firebaseapp.com",
+            projectId: "student-housing-switzerland",
+            storageBucket: "student-housing-switzerland.firebasestorage.app",
+            messagingSenderId: "926144922705",
+            appId: "1:926144922705:web:c1e03148bf1b334e9ea470",
+            measurementId: "G-WXCXZVNPHM"
+        };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-    // Function to Fetch Lease Data from Firestore
-    async function fetchLeases() {
-        const leasesRef = collection(db, "leases");
-        const leaseSnapshot = await getDocs(leasesRef);
+        // Function to Fetch Lease Data from Firestore
+        async function fetchLeases() {
+            try {
+                const leasesRef = collection(db, "leases");
+                const leaseSnapshot = await getDocs(leasesRef);
 
-        leaseSnapshot.forEach(doc => {
-            const leaseData = doc.data();
-            console.log("🔥 Lease Data:", leaseData);
-        });
-    }
+                leaseSnapshot.forEach(doc => {
+                    const leaseData = doc.data();
+                    console.log("🔥 Lease Data:", leaseData);
+                });
+            } catch (error) {
+                console.error("❌ Error fetching leases:", error);
+            }
+        }
 
-    // Fetch lease data when the page loads
-    fetchLeases();
-</script>
+        // Fetch lease data when the page loads
+        fetchLeases();
+    </script>
 
+</body>
+</html>
