@@ -6,7 +6,6 @@
     <title>Student Housing Switzerland</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" href="data:,">
 </head>
 <body class="home">
     <div class="logo">SH</div>
@@ -22,30 +21,16 @@
     <!-- "Switzerland" Text -->
     <div class="switzerland-text">Switzerland</div>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-messaging-compat.js"></script>
+
     <!-- JavaScript -->
     <script>
         function goToPage(page) {
             window.location.href = page;
         }
-
-        // Register Firebase Messaging Service Worker
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("firebase-messaging-sw.js")
-                .then(registration => {
-                    console.log("✅ Service Worker registered with scope:", registration.scope);
-                })
-                .catch(err => {
-                    console.error("❌ Service Worker registration failed:", err);
-                });
-        }
-    </script>
-
-    <!-- Firebase SDK -->
-    <script type="module">
-        // ✅ Import Firebase SDK
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-        import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-messaging.js";
 
         // ✅ Firebase configuration
         const firebaseConfig = {
@@ -59,15 +44,15 @@
         };
 
         // ✅ Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const messaging = getMessaging(app);
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const messaging = firebase.messaging();
 
         // ✅ Fetch Lease Data from Firestore
         async function fetchLeases() {
             try {
-                const leasesRef = collection(db, "leases");
-                const leaseSnapshot = await getDocs(leasesRef);
+                const leasesRef = db.collection("leases");
+                const leaseSnapshot = await leasesRef.get();
 
                 leaseSnapshot.forEach(doc => {
                     console.log("🔥 Lease Data:", doc.data());
@@ -79,30 +64,36 @@
 
         fetchLeases(); // Fetch lease data on page load
 
-        // ✅ Request permission for push notifications & Get FCM Token
-        if ("Notification" in window) {
-            Notification.requestPermission().then(permission => {
-                if (permission === "granted") {
-                    console.log("✅ User allowed notifications");
+        // ✅ Register Service Worker
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("firebase-messaging-sw.js")
+                .then(async (registration) => {
+                    console.log("✅ Service Worker registered with scope:", registration.scope);
 
-                    getToken(messaging, { vapidKey: "BN9qYQeo8YY3mwtLM2TF162eGpZpX3c708467z9EW2Vjch6rFsgK2aeXUgrpsluj1rHfDWwcBy1gwKFj06z3m2o" })
-                        .then(token => {
+                    // ✅ Request permission for push notifications
+                    const permission = await Notification.requestPermission();
+                    if (permission === "granted") {
+                        console.log("✅ User allowed notifications");
+
+                        // ✅ Get FCM Token
+                        try {
+                            const token = await messaging.getToken({ vapidKey: "BN9qYQeo8YY3mwtLM2TF162eGpZpX3c708467z9EW2Vjch6rFsgK2aeXUgrpsluj1rHfDWwcBy1gwKFj06z3m2o" });
                             if (token) {
                                 console.log("✅ FCM Token:", token);
                             } else {
                                 console.warn("⚠️ No FCM token received.");
                             }
-                        })
-                        .catch(error => {
+                        } catch (error) {
                             console.error("❌ Error getting FCM token:", error);
-                        });
-                } else {
-                    console.log("❌ User denied notifications");
-                }
-            });
+                        }
+                    } else {
+                        console.log("❌ User denied notifications");
+                    }
+                })
+                .catch(err => {
+                    console.error("❌ Service Worker registration failed:", err);
+                });
         }
     </script>
-
 </body>
 </html>
- 
